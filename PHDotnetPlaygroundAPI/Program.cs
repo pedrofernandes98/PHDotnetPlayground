@@ -1,3 +1,5 @@
+using PHDotnetPlaygroundAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,4 +24,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+ClientesFactory.Produce();
 app.Run();
