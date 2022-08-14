@@ -5,7 +5,7 @@ namespace PHDotnetPlaygroundAPI.Services
     public class ClientesFactory
     {
         private static int AutoInc = 1;
-        private static List<Cliente> ClientesInMemoryDB = new List<Cliente>();
+        private static List<Cliente> _ClientesInMemoryDB = new List<Cliente>();
 
         public ClientesFactory()
         {
@@ -23,10 +23,50 @@ namespace PHDotnetPlaygroundAPI.Services
         public static Cliente Add(Cliente cliente)
         {
             cliente.Id = AutoInc++;
-            ClientesInMemoryDB.Add(cliente);
+            _ClientesInMemoryDB.Add(cliente);
             return cliente;
         }
 
-        public static List<Cliente> GetAll() => ClientesInMemoryDB;
+        public static List<Cliente> GetAll() => _ClientesInMemoryDB;
+
+        public static Cliente GetById(int id)
+        {
+            return _ClientesInMemoryDB.FirstOrDefault(x => x.Id == id);
+        }
+
+        public static Cliente Update(int id, Cliente cliente)
+        {
+            var clienteInMemory = GetById(id);
+
+            if(clienteInMemory != null)
+            {
+                var index = IndexOf(clienteInMemory);
+                cliente.Id = clienteInMemory.Id;
+                _ClientesInMemoryDB.RemoveAt(index);
+                _ClientesInMemoryDB.Insert(index, cliente);
+                clienteInMemory = cliente;
+            }
+            
+            return clienteInMemory;
+        }
+
+        public static bool Remove(int id)
+        {
+            bool sucess = false;
+            var clienteInMemory = GetById(id);
+
+            if(clienteInMemory != null)
+            {
+                _ClientesInMemoryDB.RemoveAt(IndexOf(clienteInMemory));
+                sucess = !sucess;
+            }
+
+            return sucess;
+        }
+
+        private static int IndexOf(Cliente clienteInMemory)
+        {
+            return _ClientesInMemoryDB.IndexOf(clienteInMemory);
+        }
     }
 }

@@ -19,9 +19,50 @@ namespace PHDotnetPlaygroundAPI.Controllers
 
         [HttpGet]
         [Route("/clientes")]
-        public IEnumerable<Cliente> Get()
+        public ActionResult<IEnumerable<Cliente>> Get()
         {
             return ClientesFactory.GetAll();
+        }
+
+        [HttpGet]
+        [Route("/clientes/{id}")]
+        public ActionResult<Cliente> GetById(int id)
+        {
+            if(id <= 0)
+                return BadRequest("Deve ser enviado o Id do cliente a ser pesquisado");
+
+            return ClientesFactory.GetById(id) != null ? 
+                    ClientesFactory.GetById(id) : BadRequest($"Não foi encontrado nenhum registro com o Id: {id}");
+        }
+
+        [HttpPost]
+        [Route("/clientes")]
+        public ActionResult<Cliente> Post([FromBody] Cliente cliente)
+        {
+            return ClientesFactory.Add(cliente);
+        }
+
+        [HttpPut]
+        [Route("/clientes/{id}")]
+        public ActionResult<Cliente> Put(int id, [FromBody] Cliente cliente)
+        {
+            if(id <= 0)
+                return BadRequest("Deve ser enviado o Id do Cliente a ser atualizado");
+
+            return ClientesFactory.Update(id, cliente);
+        }
+
+        [HttpDelete]
+        [Route("/clientes/{id}")]
+        public ActionResult Delete(int id)
+        {
+            if(id <= 0)
+                return BadRequest("Deve ser enviado o Id do Cliente a ser atualizado");
+
+            if(ClientesFactory.Remove(id))
+                return Ok("Cliente removido com sucesso");
+
+            return StatusCode(500);
         }
     }
 }
