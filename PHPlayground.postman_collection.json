@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "d48ae9cc-ca35-4663-886a-283cbea2c2d3",
+		"name": "PHPlayground",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11842793"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ3Jpc3RpYW5vIiwicm9sZSI6ImNsaWVudGUiLCJuYmYiOjE2NjA1NjY1NzgsImV4cCI6MTY2MDU3NzM3OCwiaWF0IjoxNjYwNTY2NTc4fQ.xyXt1TaDD82Ks0HUw-mnvDeC_lk9nMN_UP-6L7-bUWw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7295/clientes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7295",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": \"Cristiano\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7295/auth",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7295",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ3Jpc3RpYW5vIiwicm9sZSI6ImNsaWVudGUiLCJuYmYiOjE2NjA1NjY1NzgsImV4cCI6MTY2MDU3NzM3OCwiaWF0IjoxNjYwNTY2NTc4fQ.xyXt1TaDD82Ks0HUw-mnvDeC_lk9nMN_UP-6L7-bUWw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7295/clientes/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7295",
+					"path": [
+						"clientes",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCliente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ3Jpc3RpYW5vIiwicm9sZSI6ImNsaWVudGUiLCJuYmYiOjE2NjA1NjY1NzgsImV4cCI6MTY2MDU3NzM3OCwiaWF0IjoxNjYwNTY2NTc4fQ.xyXt1TaDD82Ks0HUw-mnvDeC_lk9nMN_UP-6L7-bUWw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": \"Lewa\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"cliente\",\r\n  \"nome\": \"Lewandowski\",\r\n  \"email\": \"lewandowski@teste.com\",\r\n  \"telefone\": \"33988081340\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7295/clientes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7295",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCliente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ3Jpc3RpYW5vIiwicm9sZSI6ImNsaWVudGUiLCJuYmYiOjE2NjA1NjY1NzgsImV4cCI6MTY2MDU3NzM3OCwiaWF0IjoxNjYwNTY2NTc4fQ.xyXt1TaDD82Ks0HUw-mnvDeC_lk9nMN_UP-6L7-bUWw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"Lewandowski\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"cliente\",\r\n    \"token\": null,\r\n    \"nome\": \"Lewandowski\",\r\n    \"email\": \"lewandowski@teste.com\",\r\n    \"telefone\": \"33988081340\",\r\n    \"id\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7295/clientes/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7295",
+					"path": [
+						"clientes",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCliente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUm9uYWxkbyIsInJvbGUiOiJhZG1pbiIsIm5iZiI6MTY2MDU2NjcxMSwiZXhwIjoxNjYwNTc3NTExLCJpYXQiOjE2NjA1NjY3MTF9.7yBRaub4Wq69aJ5nOAqYWTA1UTxcga2z6egR-Y8pmy0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7295/clientes/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7295",
+					"path": [
+						"clientes",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
