@@ -68,5 +68,10 @@ namespace PHDotnetPlaygroundAPI.Services
         {
             return _ClientesInMemoryDB.IndexOf(clienteInMemory);
         }
+
+        public static Cliente ValidateUserPassword(string user, string password)
+        {
+            return _ClientesInMemoryDB.FirstOrDefault(x => x.User == user && x.Password == password);
+        }
     }
 }
