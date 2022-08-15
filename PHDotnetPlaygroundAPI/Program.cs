@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using PHDotnetPlaygroundAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using PHDotnetPlaygroundAPI.Services.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,13 +44,14 @@ builder.Services.AddAuthentication(x =>
                 };
             });;
 
-builder.Services.AddAuthorization(options =>
+            builder.Services.AddAuthorization(options =>
             {
                options.AddPolicy("admin", policy => policy.RequireClaim("admin"));
-               options.AddPolicy("professor", policy => policy.RequireClaim("professor"));
-               options.AddPolicy("aluno", policy => policy.RequireClaim("aluno"));
+               options.AddPolicy("cliente", policy => policy.RequireClaim("cliente"));
             });
 
+//Injeção de dependência do Serviço que gera o Token.
+builder.Services.AddScoped<IJwtToken, JwtToken>();
 
 #endregion
 

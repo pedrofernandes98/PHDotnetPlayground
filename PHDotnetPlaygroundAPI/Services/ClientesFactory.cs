@@ -10,14 +10,14 @@ namespace PHDotnetPlaygroundAPI.Services
         public ClientesFactory()
         {
         }
-        
+        //string user, string password, string role, string nome, string email, string telefone
         public static void Produce()
         {
-            Add(new Cliente("Ronaldo", "ronaldo@teste.com", "31988081331"));
-            Add(new Cliente("Cristiano", "cristiano@teste.com", "31988081332"));
-            Add(new Cliente("Ney", "ney@teste.com", "31988081333"));
-            Add(new Cliente("Messi", "messi@teste.com", "31988081334"));
-            Add(new Cliente("Lionel", "lionel@teste.com", "31988081335"));
+            Add(new Cliente("Ronaldo","123456","admin", "Ronaldo", "ronaldo@teste.com", "31988081331"));
+            Add(new Cliente("Cristiano","123456","cliente","Cristiano", "cristiano@teste.com", "31988081332"));
+            Add(new Cliente("Ney","123456","cliente","Ney", "ney@teste.com", "31988081333"));
+            Add(new Cliente("Messi","123456","cliente","Messi", "messi@teste.com", "31988081334"));
+            Add(new Cliente("Lionel","123456","cliente","Lionel", "lionel@teste.com", "31988081335"));
         }
 
         public static Cliente Add(Cliente cliente)
